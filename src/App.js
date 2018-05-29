@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Layout } from 'antd';
 import PageTop from './common/pageTop/pageTop';
+import PageSide from './common/pageSide/pageSide';
 const { Header, Footer, Sider, Content } = Layout;
 
 
@@ -14,8 +15,8 @@ class App extends Component {
             <PageTop />
           </Header>
           <Layout>
-            <Sider>Sider</Sider>
-            <Content>Content</Content>
+            <Sider><PageSide /></Sider>
+            <Content></Content>
           </Layout>
           <Footer>Footer</Footer>
         </Layout>

@@ -7,7 +7,7 @@ class PageTop extends Component {
     return (
       <div className="PageTop">
         <div>
-            <h2>7ehome后台管理系统</h2>
+            <h2>后台管理系统</h2>
         </div>
         <div>
             <Button>登录</Button>
