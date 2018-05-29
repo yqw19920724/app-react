@@ -3,24 +3,30 @@ import './App.css';
 import { Layout } from 'antd';
 import PageTop from './common/pageTop/pageTop';
 import PageSide from './common/pageSide/pageSide';
+import Pages from './pages/pages'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 const { Header, Footer, Sider, Content } = Layout;
 
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Layout>
-          <Header>
-            <PageTop />
-          </Header>
+      <Router>
+        <div className="App">
           <Layout>
-            <Sider><PageSide /></Sider>
-            <Content></Content>
+            <Header>
+              <PageTop />
+            </Header>
+            <Layout>
+              <Sider><PageSide /></Sider>
+              <Content>
+                <Route exact path="/goods" component={Pages} />
+              </Content>
+            </Layout>
+            <Footer>Footer</Footer>
           </Layout>
-          <Footer>Footer</Footer>
-        </Layout>
-      </div>
+        </div>
+      </Router>
     );
   }
 }
