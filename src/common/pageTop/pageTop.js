@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './pageTop.less';
 import { Button } from 'antd';
+import { Link } from 'react-router-dom'
 
 class PageTop extends Component {
   render() {
@@ -10,7 +11,7 @@ class PageTop extends Component {
             <h2>后台管理系统</h2>
         </div>
         <div>
-            <Button>登录</Button>
+            <Button><Link to="/login">登录</Link></Button>
         </div>
       </div>
     );

@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
-import { Layout } from 'antd';
-import PageTop from './common/pageTop/pageTop';
-import PageSide from './common/pageSide/pageSide';
 import Pages from './pages/pages'
-import { BrowserRouter as Router} from 'react-router-dom'
-const { Header, Footer, Sider, Content } = Layout;
+import { BrowserRouter as Router, Route, Switch} from 'react-router-dom'
+import Login from './pages/components/login/login'
+
 
 
 class App extends Component {
@@ -13,16 +11,10 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Layout>
-            <Header>
-              <PageTop />
-            </Header>
-            <Layout>
-              <Sider><PageSide /></Sider>
-              <Content><Pages /></Content>
-            </Layout>
-            <Footer>Footer</Footer>
-          </Layout>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/" component={Pages} />
+          </Switch>
         </div>
       </Router>
     );

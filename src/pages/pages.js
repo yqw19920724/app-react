@@ -3,6 +3,10 @@ import './pages.less';
 import { Route } from 'react-router-dom'
 import Entry from './components/entry/entry'
 import Goods from './components/goods/goods'
+import PageSide from '../common/pageSide/pageSide'
+import PageTop from '../common/pageTop/pageTop'
+import { Layout } from 'antd';
+const { Header, Footer, Sider, Content } = Layout
 
 class Pages extends Component {
 
@@ -14,9 +18,20 @@ class Pages extends Component {
     render() {
         return (
             <div className="Pages">
-            123123
-            <Route exact path="/" component={Entry} />
+            <Layout>
+            <Header>
+              <PageTop />
+            </Header>
+            <Layout>
+              <Sider><PageSide /></Sider>
+              <Content>
+              <Route exact path="/" component={Entry} />
             <Route path="/goods" component={Goods} />
+              </Content>
+            </Layout>
+            <Footer>Footer</Footer>
+          </Layout>
+            
             </div>
         );
     }
