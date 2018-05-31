@@ -35,8 +35,8 @@ class PageSide extends Component {
                         <span>Option 3</span>
                     </Menu.Item>
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>个人小铺</span></span>}>
-                        <Menu.Item key="5"><Link to="/goods">商品列表</Link></Menu.Item>
-                        <Menu.Item key="6">上传商品</Menu.Item>
+                        <Menu.Item key="5"><Link to="/goods/list">商品列表</Link></Menu.Item>
+                        <Menu.Item key="6"><Link to="/">上传商品</Link></Menu.Item>
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
                     </SubMenu>
