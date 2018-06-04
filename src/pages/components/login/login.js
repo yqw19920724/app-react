@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './login.less';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 
 class Login extends Component {
 
@@ -14,7 +14,14 @@ class Login extends Component {
           <div className="Login">
             <div className="login-panel">
                 <h3>登录</h3>
-                <Input placeholder="请输入用户名" />
+                <div className="body">
+                    <Input placeholder="请输入用户名" />
+                    <Input type="password" placeholder="请输入密码" />
+                    <div>
+                        <Button>取消</Button>
+                        <Button type="primary">确定</Button>
+                    </div>
+                </div>
             </div>
           </div>
         );
