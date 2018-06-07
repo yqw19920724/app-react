@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import './login.less';
-import { Input, Button } from 'antd';
+import { Input, Button, message } from 'antd';
 import http from '../../../assets/js/http'
+import Cookies from 'react-cookies';
+
+const success = () => {
+    message.success('登录成功！', 10);
+};
 
 class Login extends Component {
 
@@ -20,6 +25,11 @@ class Login extends Component {
             password: this.state.password,
         }).then(res => {
             console.log(res)
+            success();
+            const data = new Date();
+            const expires = new Date(data.setDate((new Date()).getDate() + 1));
+            Cookies.save('7ehome-Login', res, {expires: expires});
+            this.props.history.push("/")
         }).catch(err =>{
             console.log(err)
         }) 
