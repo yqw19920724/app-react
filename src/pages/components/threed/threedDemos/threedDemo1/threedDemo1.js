@@ -16,7 +16,7 @@ class ThreedDemo1 extends Component {
         this.geometry = new Geometry();
         this.light = new Light();
         this.three.initThree();
-        this.three.initScene();
+        this.three.initScene({fog: {color: '0xffffff'}});
         this.three.initCamera();
 
         this.three.sceneAdd(this.geometry.createAxesHelper());

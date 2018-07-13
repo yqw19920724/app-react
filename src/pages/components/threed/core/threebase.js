@@ -1,9 +1,13 @@
 import * as THREE from 'three';
+import baseColor from './res/baseColor';
 
 class ThreeBase {
     constructor(canvasFrame) {
         this.element = document.getElementById(canvasFrame);
-        console.log(this.element.clientHeight)
+
+        this.colorEnum = {
+            fogColor: "scene_fog_color"
+        }
     }
 
     initThree = () => {
@@ -14,8 +18,13 @@ class ThreeBase {
         this.element.appendChild( this.renderer.domElement );
     };
 
-    initScene = () => {
+    initScene = ({fog} = {}) => {
         this.scene = new THREE.Scene();
+        if(fog && Object.keys(fog).length !== 0) {
+            const fogColor = fog.color || baseColor[this.colorEnum.fogColor];
+            this.scene.fog = new THREE.Fog(fogColor, 0.015, 100);
+        }
+        
     }
 
     initCamera = () => {
