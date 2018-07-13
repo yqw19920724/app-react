@@ -40,8 +40,8 @@ class PageSide extends Component {
                         <Menu.Item key="7">Option 7</Menu.Item>
                         <Menu.Item key="8">Option 8</Menu.Item>
                     </SubMenu>
-                    <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>Navigation Two</span></span>}>
-                        <Menu.Item key="9">Option 9</Menu.Item>
+                    <SubMenu key="sub2" title={<span><Icon type="appstore" /><span>webgl学习</span></span>}>
+                        <Menu.Item key="9"><Link to="/3d/demo1">实例一</Link></Menu.Item>
                         <Menu.Item key="10">Option 10</Menu.Item>
                         <SubMenu key="sub3" title="Submenu">
                         <Menu.Item key="11">Option 11</Menu.Item>
