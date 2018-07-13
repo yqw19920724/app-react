@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './pages.less';
 import { Route } from 'react-router-dom'
 import Entry from './components/entry/entry'
+import Threed from './components/threed/threed'
 import Goods from './components/goods/goods'
 import PageSide from '../common/pageSide/pageSide'
 import PageTop from '../common/pageTop/pageTop'
@@ -26,7 +27,8 @@ class Pages extends Component {
               <Sider><PageSide /></Sider>
               <Content>
               <Route exact path="/" component={Entry} />
-            <Route path="/goods" component={Goods} />
+              <Route path="/goods" component={Goods} />
+              <Route path="/3d" component={Threed} />
               </Content>
             </Layout>
             <Footer>Footer</Footer>
