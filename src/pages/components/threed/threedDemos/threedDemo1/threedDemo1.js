@@ -21,10 +21,24 @@ class ThreedDemo1 extends Component {
 
         this.three.sceneAdd(this.geometry.createAxesHelper());
         this.three.sceneAdd(this.light.setSpotlight());
-        
-        this.plane = this.geometry.createPlane();
-        this.cube = this.geometry.createCube();
-        this.sphere = this.geometry.createSphere();
+        this.three.sceneAdd(this.light.setAmbientLight('0x404040'));
+        this.three.sceneAdd(this.light.setHemiLight()); 
+
+        this.plane = this.geometry.createPlane({
+            size: {width: 60, height: 20, widthSegments: 1, heightSegments: 1}, 
+            color: 0xcccccc, 
+            position: {x: 15, y: 0, z: 0}
+        });
+        this.cube = this.geometry.createCube({
+            size: {width: 4, height: 4, depth: 4}, 
+            color: 0xff0000, 
+            position: {x: -4, y: 3, z: 0}
+        });
+        this.sphere = this.geometry.createSphere({
+            size: {radius: 4, widthSegments: 20, heightSegments: 20}, 
+            color: 0x7777ff, 
+            position: {x: 20, y: 4, z: 2}
+        });
         this.three.sceneAdd(this.plane);
         this.three.sceneAdd(this.cube); 
         this.three.sceneAdd(this.sphere);
