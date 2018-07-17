@@ -40,8 +40,8 @@ class Geometry {
     }
 
     //添加坐标系
-    createAxesHelper = () => {
-        const axes = new THREE.AxesHelper(20);
+    createAxesHelper = (size) => {
+        const axes = new THREE.AxesHelper(size);
         return axes;
     }
 }

@@ -19,10 +19,16 @@ class ThreedDemo1 extends Component {
         this.three.initScene({fog: {color: '0xffffff'}});
         this.three.initCamera();
 
-        this.three.sceneAdd(this.geometry.createAxesHelper());
-        this.three.sceneAdd(this.light.setSpotlight());
+        this.three.sceneAdd(this.geometry.createAxesHelper(20));
+        this.three.sceneAdd(this.light.setSpotlight({
+            color: 0xffffff,
+            position: { x: -40, y: 60, z: -10 }
+        }));
         this.three.sceneAdd(this.light.setAmbientLight('0x404040'));
-        this.three.sceneAdd(this.light.setHemiLight()); 
+        this.three.sceneAdd(this.light.setHemiLight({
+            color: {skyColor: 0x0000ff, groundColor: 0x00ff00, intensity: 0.6},
+            position: {x: 0, y: 500, z: 0}
+        })); 
 
         this.plane = this.geometry.createPlane({
             size: {width: 60, height: 20, widthSegments: 1, heightSegments: 1}, 

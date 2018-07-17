@@ -3,9 +3,9 @@ import * as THREE from 'three';
 class Light {
     
     //点光源
-    setSpotlight = () => {
-        const spotLight = new THREE.SpotLight(0xffffff);
-        spotLight.position.set( -40, 60, -10);
+    setSpotlight = ({color, position}) => {
+        const spotLight = new THREE.SpotLight(color);
+        spotLight.position.set( position.x, position.y, position.z);
         spotLight.castShadow = true; //光源投射阴影
         return spotLight;
     };
@@ -17,9 +17,9 @@ class Light {
     }
 
     //平行光
-    setHemiLight = () => {
-        const hemiLight = new THREE.HemisphereLight(0x0000ff, 0x00ff00, 0.6);
-        hemiLight.position.set(0, 500, 0);
+    setHemiLight = ({ color , position }) => {
+        const hemiLight = new THREE.HemisphereLight(color.skyColor, color.groundColor, color.intensity);
+        hemiLight.position.set(position.x, position.y, position.z);
         return hemiLight;
     }
     
