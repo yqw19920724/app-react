@@ -27,12 +27,12 @@ class ThreeBase {
         
     }
 
-    initCamera = () => {
-        this.camera = new THREE.PerspectiveCamera( 75, this.element.clientWidth/this.element.clientHeight, 0.1, 1000 );
+    initCamera = ({fov, position}) => {
+        this.camera = new THREE.PerspectiveCamera( fov, this.element.clientWidth/this.element.clientHeight, 0.1, 1000 );
         //设置相机位置
-        this.camera.position.x = -30;
-        this.camera.position.y = 40;
-        this.camera.position.z = 30;
+        this.camera.position.x = position.x;
+        this.camera.position.y = position.y;
+        this.camera.position.z = position.z;
         this.camera.lookAt(this.scene.position);
     };
 
