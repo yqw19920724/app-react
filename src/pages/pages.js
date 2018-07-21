@@ -4,8 +4,8 @@ import { Route } from 'react-router-dom'
 import Entry from './components/entry/entry'
 import Threed from './components/threed/threed'
 import Goods from './components/goods/goods'
-import PageSide from '../common/pageSide/pageSide'
-import PageTop from '../common/pageTop/pageTop'
+import PageSide from '../common/components/pageSide/pageSide'
+import PageTop from '../common/components/pageTop/pageTop'
 import { Layout } from 'antd';
 const { Header, Footer, Sider, Content } = Layout
 

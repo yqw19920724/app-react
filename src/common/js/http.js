@@ -7,6 +7,11 @@ const apiList = [
         apiName: 'login',
         method: 'POST',
         url: 'users/login'
+    },
+    {
+        apiName: 'register',
+        method: 'POST',
+        url: 'users/register'
     }
 ]
 
@@ -47,16 +52,18 @@ const setXML = (apiName, id, params) => {
 }
 
 export default (apiName, id = '',params = {}) => {
-    const [err, apiData] = setXML(apiName, id, params);
-    if(err) {
-        return console.log(err)
-    }
-
     return new Promise(function (resolve, reject) {
+        const [err, apiData] = setXML(apiName, id, params);
+        if(err) {
+            return reject(err)
+        }
         fetch(apiData.apiUrl, apiData.apiParams)
         .then((response) => response.json())
         .then((responseData) => {
             console.log('res:',apiData.apiUrl, responseData);   //网络请求成功返回的数据
+            if(responseData.err) {
+                return reject(responseData);
+            }
             resolve(responseData);
         })
         .catch(err => {

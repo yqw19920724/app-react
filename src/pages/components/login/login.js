@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
 import './login.less';
-import { Input, Button, message } from 'antd';
-import http from '../../../assets/js/http'
+import { Input, Button } from 'antd';
+import { Link } from 'react-router-dom'
+import CommonModule from '../../../common/commonModule'
 import Cookies from 'react-cookies';
-
-const success = () => {
-    message.success('登录成功！', 10);
-};
 
 class Login extends Component {
 
@@ -20,18 +17,17 @@ class Login extends Component {
     }
 
     login = () => {
-        http('login', {
+        CommonModule.http('login', {
             username: this.state.username,
             password: this.state.password,
-        }).then(res => {
-            console.log(res)
-            success();
+        }).then(({token, message}) => {
+            CommonModule.msgSuccess(message);
             const data = new Date();
             const expires = new Date(data.setDate((new Date()).getDate() + 1));
-            Cookies.save('7ehome-Login', res, {expires: expires});
+            Cookies.save('7ehome-Login', {token}, {expires: expires});
             this.props.history.push("/")
         }).catch(err =>{
-            console.log(err)
+            CommonModule.msgError(err.err)
         }) 
     }
 
@@ -51,6 +47,10 @@ class Login extends Component {
                 <div className="body">
                     <Input value={this.state.username} onChange={this.setUsername} placeholder="请输入用户名" />
                     <Input value={this.state.password} onChange={this.setPassword} type="password" placeholder="请输入密码" />
+                    <div>
+                        <span><Link to="/register">注册账号</Link></span>
+                        <span>忘记密码</span>
+                    </div>
                     <div>
                         <Button>取消</Button>
                         <Button type="primary" onClick={this.login}>确定</Button>
