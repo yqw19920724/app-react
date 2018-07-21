@@ -3,7 +3,6 @@ import './login.less';
 import { Input, Button } from 'antd';
 import { Link } from 'react-router-dom'
 import CommonModule from '../../../common/commonModule'
-import Cookies from 'react-cookies';
 
 class Login extends Component {
 
@@ -22,9 +21,7 @@ class Login extends Component {
             password: this.state.password,
         }).then(({token, message}) => {
             CommonModule.msgSuccess(message);
-            const data = new Date();
-            const expires = new Date(data.setDate((new Date()).getDate() + 1));
-            Cookies.save('7ehome-Login', {token}, {expires: expires});
+            CommonModule.setCookie({'7ehome-Login': {token}}, 1)
             this.props.history.push("/")
         }).catch(err =>{
             CommonModule.msgError(err.err)
@@ -52,7 +49,7 @@ class Login extends Component {
                         <span>忘记密码</span>
                     </div>
                     <div>
-                        <Button>取消</Button>
+                        <Button><Link to="/">取消</Link></Button>
                         <Button type="primary" onClick={this.login}>确定</Button>
                     </div>
                 </div>

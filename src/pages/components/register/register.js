@@ -3,7 +3,6 @@ import './register.less'
 import { Input, Button } from 'antd'
 import CommonModule from '../../../common/commonModule'
 import { Link } from 'react-router-dom'
-import Cookies from 'react-cookies'
 
 class Register extends Component {
 
@@ -54,7 +53,7 @@ class Register extends Component {
                         <span><Link to="/login">去登陆</Link></span>
                     </div>
                     <div>
-                        <Button>取消</Button>
+                        <Button><Link to="/">取消</Link></Button>
                         <Button type="primary" onClick={this.register}>确定</Button>
                     </div>
                 </div>
