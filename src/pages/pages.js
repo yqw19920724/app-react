@@ -24,11 +24,13 @@ class Pages extends Component {
               <PageTop />
             </Header>
             <Layout>
-              <Sider><PageSide /></Sider>
+              <Sider width="256" style={{ background: '#fff' }}>
+                <PageSide />
+              </Sider>
               <Content>
-              <Route exact path="/" component={Entry} />
-              <Route path="/goods" component={Goods} />
-              <Route path="/3d" component={Threed} />
+                <Route exact path="/" component={Entry} />
+                <Route path="/goods" component={Goods} />
+                <Route path="/3d" component={Threed} />
               </Content>
             </Layout>
             <Footer>Footer</Footer>

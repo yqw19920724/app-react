@@ -3,6 +3,7 @@ import './pageSide.less';
 import { Link } from 'react-router-dom'
 import { Menu, Icon } from 'antd';
 const SubMenu = Menu.SubMenu;
+const MenuItemGroup = Menu.ItemGroup;
 
 
 class PageSide extends Component {
@@ -21,7 +22,13 @@ class PageSide extends Component {
     render() {
         return (
             <div className="PageSide">
-                <Menu defaultSelectedKeys={['1']} defaultOpenKeys={['sub1', 'sub2', 'sub3']} mode="inline" theme="dark" inlineCollapsed={this.state.collapsed}>
+                {/* <Menu 
+                style={{ width: 256 }}
+                defaultSelectedKeys={['1']} 
+                defaultOpenKeys={['sub1', 'sub2', 'sub3']} 
+                mode="inline" 
+                theme="dark" 
+                inlineCollapsed={this.state.collapsed}>
                     <Menu.Item key="1">
                         <Icon type="pie-chart" />
                         <span>商品列表</span>
@@ -48,6 +55,22 @@ class PageSide extends Component {
                         <Menu.Item key="12">Option 12</Menu.Item>
                         </SubMenu>
                     </SubMenu>
+                </Menu> */}
+                <Menu
+                    onClick={this.handleClick}
+                    style={{ width: 256 }}
+                    defaultSelectedKeys={['1']}
+                    defaultOpenKeys={['sub1']}
+                    mode="inline"
+                >
+                <SubMenu key="sub1" title={<span><Icon type="appstore" /><span>个人中心</span></span>}>
+                <Menu.Item key="1"><Link to="/goods/list">商品列表</Link></Menu.Item>
+                <Menu.Item key="2"><Link to="/">上传商品</Link></Menu.Item>
+                <SubMenu key="sub2" title="webGL">
+                    <Menu.Item key="3"><Link to="/3d/demo1">实例一</Link></Menu.Item>
+                    <Menu.Item key="4">Option 8</Menu.Item>
+                </SubMenu>
+                </SubMenu>
                 </Menu>
             </div>
         );
