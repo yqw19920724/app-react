@@ -24,7 +24,7 @@ class Pages extends Component {
               <PageTop />
             </Header>
             <Layout>
-              <Sider width="256" style={{ background: '#fff' }}>
+              <Sider width="256" style={{ background: '#000' }}>
                 <PageSide />
               </Sider>
               <Content>

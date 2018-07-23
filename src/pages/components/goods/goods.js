@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React, { Component } from 'react'
+import { Route } from 'react-router-dom'
 import GoodsList from './goodsList/goodsList'
+import GoodsUpload from './goodsUpload/goodsUpload'
 import './goods.less';
 
 class Goods extends Component {
@@ -14,6 +15,7 @@ class Goods extends Component {
             <div className="Goods">
                 xxxxxxxx
                 <Route path='/goods/list' component={GoodsList} />
+                <Route path='/goods/upload' component={GoodsUpload} />
             </div>
         );
     }
