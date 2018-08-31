@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './pages.less';
 import { Route } from 'react-router-dom'
 import Entry from './components/entry/entry'
-import Threed from './components/threed/threed'
+import Webgl from './components/webgl/webgl'
+import Svg from './components/svg/svg'
 import Goods from './components/goods/goods'
 import PageSide from '../common/components/pageSide/pageSide'
 import PageTop from '../common/components/pageTop/pageTop'
@@ -30,7 +31,8 @@ class Pages extends Component {
               <Content>
                 <Route exact path="/" component={Entry} />
                 <Route path="/goods" component={Goods} />
-                <Route path="/3d" component={Threed} />
+                <Route path="/3d" component={Webgl} />
+                <Route path="/2d" component={Svg} />
               </Content>
             </Layout>
             <Footer>Footer</Footer>

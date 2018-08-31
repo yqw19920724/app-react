@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import threeBase from '../../core/threebase';
 import Geometry from '../../core/geometry';
 import Light from '../../core/light';
-import './threedDemo1.less';
+import './webglDemo1.less';
 
-class ThreedDemo1 extends Component {
+class WebglDemo1 extends Component {
 
     constructor() {
         super()
@@ -76,11 +76,11 @@ class ThreedDemo1 extends Component {
 
     render() {
         return (
-            <div className="ThreedDemo1">
+            <div className="webglDemo1">
                 <div id="canvas-frame"></div>
             </div>
         );
     }
 }
 
-export default ThreedDemo1;
+export default WebglDemo1;
