@@ -34,6 +34,18 @@ class ThreeBase {
         this.camera.position.y = position.y;
         this.camera.position.z = position.z;
         this.camera.lookAt(this.scene.position);
+
+        // const controls = new THREE.TrackballControls( this.camera );
+
+        // controls.rotateSpeed = 5.0;
+        // controls.zoomSpeed = 5;
+        // controls.panSpeed = 2;
+
+        // controls.noZoom = false;
+        // controls.noPan = false;
+
+        // controls.staticMoving = true;
+        // controls.dynamicDampingFactor = 0.3;
     };
 
     sceneAdd = (object) => {

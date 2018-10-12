@@ -30,7 +30,7 @@ class Geometry {
     //创建球体
     createSphere = ({size, position, color}) => {
         const sphereGeometry = new THREE.SphereGeometry( size.radius, size.widthSegments, size.heightSegments );
-        const sphereMaterical = new THREE.MeshLambertMaterial( { color: color, wireframe: true } );
+        const sphereMaterical = new THREE.MeshLambertMaterial( { color: color} );
         const sphere = new THREE.Mesh( sphereGeometry, sphereMaterical );
         sphere.position.x = position.x;
         sphere.position.y = position.y;

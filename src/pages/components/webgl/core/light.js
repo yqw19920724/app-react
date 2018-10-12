@@ -2,7 +2,7 @@ import * as THREE from 'three';
 
 class Light {
     
-    //点光源
+    //聚光灯光源
     setSpotlight = ({color, position}) => {
         const spotLight = new THREE.SpotLight(color);
         spotLight.position.set( position.x, position.y, position.z);
