@@ -32,7 +32,7 @@ class PageSide extends Component {
                     <Menu.Item key="2"><Link to="/goods/upload">上传商品</Link></Menu.Item>
                     <SubMenu key="sub2" title="webGL">
                         <Menu.Item key="3"><Link to="/3d/demo1">实例一</Link></Menu.Item>
-                        <Menu.Item key="4">Option 8</Menu.Item>
+                        <Menu.Item key="4"><Link to="/3d/demo2">实例二</Link></Menu.Item>
                     </SubMenu>
                     <SubMenu key="sub3" title="svg">
                         <Menu.Item key="5"><Link to="/2d/demo1">实例一</Link></Menu.Item>

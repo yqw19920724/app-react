@@ -33,7 +33,8 @@ class WebglDemo1 extends Component {
         this.plane = this.geometry.createPlane({
             size: {width: 60, height: 20, widthSegments: 1, heightSegments: 1}, 
             color: 0xcccccc, 
-            position: {x: 15, y: 0, z: 0}
+            position: {x: 15, y: 0, z: 0},
+            rotation: {x: -0.5* Math.PI}
         });
 
         const spotLight = this.light.setSpotlight({
