@@ -17,7 +17,7 @@
     "whatwg-fetch": "^2.0.4"
   },
   "scripts": {
-    "start": "react-app-rewired start -p 80",
+    "start": "react-app-rewired start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
