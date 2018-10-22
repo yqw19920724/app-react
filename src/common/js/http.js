@@ -1,18 +1,15 @@
 import 'whatwg-fetch'
 
+const apiName = {
+    LOGIN: 'login',
+    REGISTER: 'register'
+}
+
 const baseUrl = 'http://localhost:3000/';
 
 const apiList = [
-    {
-        apiName: 'login',
-        method: 'POST',
-        url: 'users/login'
-    },
-    {
-        apiName: 'register',
-        method: 'POST',
-        url: 'users/register'
-    }
+    { apiName: apiName.LOGIN, method: 'POST', url: 'users/login' },
+    { apiName: apiName.REGISTER, method: 'POST', url: 'users/register' }
 ]
 
 const setXML = (apiName, id, params) => {
@@ -37,7 +34,6 @@ const setXML = (apiName, id, params) => {
             }
             api.url = api.url.substr(0, api.url.length -1);
             break;
-        
             case 'POST':
             break;
         
@@ -51,7 +47,7 @@ const setXML = (apiName, id, params) => {
     return [null, {apiUrl: api.url,apiParams: apiParams}]
 }
 
-export default (apiName, id = '',params = {}) => {
+const handler = (apiName, id = '',params = {}) => {
     return new Promise(function (resolve, reject) {
         const [err, apiData] = setXML(apiName, id, params);
         if(err) {
@@ -71,4 +67,9 @@ export default (apiName, id = '',params = {}) => {
             reject(err);
         });
     });
+}
+
+export default {
+    apiName,
+    handler
 }
