@@ -13,7 +13,6 @@ class Goods extends Component {
     render() {
         return (
             <div className="Goods">
-                xxxxxxxx
                 <Route path='/goods/list' component={GoodsList} />
                 <Route path='/goods/upload' component={GoodsUpload} />
             </div>
