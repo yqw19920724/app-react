@@ -70,9 +70,7 @@ const formatBodyData = (params) => {
 
 const formatHeaders = (params) => {
     const headers = {};
-    if(params instanceof FormData) {
-        headers['Content-Type'] = 'multipart/form-data';
-    }else {
+    if(!(params instanceof FormData)) {
         headers['Content-Type'] = 'application/json';
     }
     return headers;

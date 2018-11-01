@@ -1,6 +1,7 @@
 import http from './js/http'
 import { getCookie, setCookie } from './js/common'
 import { msgSuccess, msgError } from './js/message';
+import resourceManager from './js/resourceManager';
 
 
 export default {
@@ -8,5 +9,6 @@ export default {
     msgSuccess,
     msgError,
     getCookie,
-    setCookie
+    setCookie,
+    resourceManager
 }

@@ -52,12 +52,11 @@ class GoodsUpload extends Component {
             name: this.state.goodName,
             price: this.state.goodPrice
         }).then(data => {
-            console.log(this.state.imageData);
             const formData = new FormData();
             formData.append('img', this.state.imageData);
             return CommonModule.http.handler(CommonModule.http.apiName.UPLOADIMAGE, data._id, formData)
         }).then(data => {
-            console.log(data)
+            CommonModule.msgSuccess(CommonModule.resourceManager.getString('upload_success'));
         }).catch(err => {
             CommonModule.msgError(err.err)
         })
