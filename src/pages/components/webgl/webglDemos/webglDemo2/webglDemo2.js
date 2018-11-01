@@ -5,10 +5,6 @@ import Light from '../../core/light';
 import './webglDemo2.less';
 
 class WebglDemo2 extends Component {
-
-    constructor() {
-        super()
-    }
     
     componentDidMount() {
         this.three = new threeBase('canvas-frame');

@@ -17,6 +17,8 @@ export class Shape {
             case shapeTypeMenu.circle:
                 this.createCircle();
                 break;
+            default:
+                break;
         }
     }
 

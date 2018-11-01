@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Canvas from '../model/canvas'
 import {Shape, shapeTypeMenu} from '../model/shape'
-import Signal from 'signals'
 import './svgDemo1.less';
 
 class SvgDemo1 extends Component {
@@ -18,7 +17,7 @@ class SvgDemo1 extends Component {
     }
 
     drawCircle = (e) => {
-        const circle = new Shape(this.paper, shapeTypeMenu.circle, {x: e.clientX, y: e.clientY}, {radius: 30, fill: 'red'})
+        new Shape(this.paper, shapeTypeMenu.circle, {x: e.clientX, y: e.clientY}, {radius: 30, fill: 'red'})
     }
 
     render() {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './goodsUpload.less';
-import { Input, Button, Icon, message } from 'antd';
+import { Input, Button, Icon } from 'antd';
 import CommonModule from '../../../../common/commonModule'
 
 class GoodsUpload extends Component {
@@ -68,7 +68,7 @@ class GoodsUpload extends Component {
                 <input id='file-upload' onChange={this.handleChange} type='file' title={this.state.imageData && this.state.imageData.name ? this.state.imageData.name : null}/>
                     <div className='preview-box'>
                         {
-                            this.state.imageUrl ? <img src={this.state.imageUrl} /> : 
+                            this.state.imageUrl ? <img src={this.state.imageUrl} alt='' /> : 
                             <div>
                                 <Icon type={this.state.loading ? 'loading' : 'plus'} />
                                 <div className="ant-upload-text">上传图片</div>

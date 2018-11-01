@@ -13,7 +13,7 @@ const apiList = [
     { apiName: apiName.LOGIN, method: 'POST', url: 'users/login' },
     { apiName: apiName.REGISTER, method: 'POST', url: 'users/register' },
     { apiName: apiName.CREATEGOOD, method: 'POST', url: 'goods' },
-    { apiName: apiName.UPLOADIMAGE, method: 'POST', url: 'upload/${id}' },
+    { apiName: apiName.UPLOADIMAGE, method: 'POST', url: 'upload/${id}' }
 ]
 
 const setXML = (apiName, ...rest) => {
