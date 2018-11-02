@@ -1,19 +1,13 @@
 import 'whatwg-fetch'
 
-const apiName = {
-    LOGIN: 'login',
-    REGISTER: 'register',
-    CREATEGOOD: 'createGood',
-    UPLOADIMAGE: 'uploadImage'
-}
-
 const baseUrl = 'http://localhost:3000/';
 
 const apiList = [
-    { apiName: apiName.LOGIN, method: 'POST', url: 'users/login' },
-    { apiName: apiName.REGISTER, method: 'POST', url: 'users/register' },
-    { apiName: apiName.CREATEGOOD, method: 'POST', url: 'goods' },
-    { apiName: apiName.UPLOADIMAGE, method: 'POST', url: 'upload/${id}' }
+    { apiName: 'login', method: 'POST', url: 'users/login' },
+    { apiName: 'register', method: 'POST', url: 'users/register' },
+    { apiName: 'createGood', method: 'POST', url: 'goods' },
+    { apiName: 'uploadImage', method: 'POST', url: 'upload/${id}' },
+    { apiName: 'getGoods', method: 'GET', url: 'goods' },
 ]
 
 const setXML = (apiName, ...rest) => {
@@ -44,6 +38,7 @@ const setXML = (apiName, ...rest) => {
             api.url = api.url.replace(param, restArr[i])
         });
     }
+    const apiParams = {method: api.method};
     switch (api.method) {
         case 'GET':
             api.url = `${api.url}?`;
@@ -53,13 +48,12 @@ const setXML = (apiName, ...rest) => {
             api.url = api.url.substr(0, api.url.length -1);
             break;
             case 'POST':
+            apiParams.body = formatBodyData(params);
             break;
         
         default:
             break;
     }
-    const apiParams = {method: api.method};
-    apiParams.body = formatBodyData(params);
     apiParams.headers = formatHeaders(params);
     return [null, {apiUrl: api.url,apiParams: apiParams}]
 }
@@ -99,6 +93,5 @@ const handler = (apiName, ...rest) => {
 }
 
 export default {
-    apiName,
     handler
 }

@@ -16,7 +16,7 @@ class Login extends Component {
     }
 
     login = () => {
-        CommonModule.http.handler(CommonModule.http.apiName.LOGIN, {
+        CommonModule.http.handler('login', {
             username: this.state.username,
             password: this.state.password,
         }).then(({token, message}) => {

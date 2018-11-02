@@ -48,13 +48,13 @@ class GoodsUpload extends Component {
     }
 
     commitGood = () => {
-        CommonModule.http.handler(CommonModule.http.apiName.CREATEGOOD, {
+        CommonModule.http.handler('createGood', {
             name: this.state.goodName,
             price: this.state.goodPrice
         }).then(data => {
             const formData = new FormData();
             formData.append('img', this.state.imageData);
-            return CommonModule.http.handler(CommonModule.http.apiName.UPLOADIMAGE, data._id, formData)
+            return CommonModule.http.handler('uploadImage', data._id, formData)
         }).then(data => {
             CommonModule.msgSuccess(CommonModule.resourceManager.getString('upload_success'));
         }).catch(err => {
