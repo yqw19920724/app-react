@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './goodsList.less';
+import CommonModule from '../../../../common/commonModule'
 
 class GoodsList extends Component {
 
     componentDidMount() {}
 
     componentWillMount() {
-        window.CF.commonModule.http.handler(window.CF.commonModule.http.apiName.GETGOODS, {
+        CommonModule.http.handler('getGoods', {
             limit: 10,
             page: 1
         }).then(data => {
