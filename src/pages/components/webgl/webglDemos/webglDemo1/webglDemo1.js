@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import threeBase from '../../core/threebase';
 import Geometry from '../../core/geometry';
 import Light from '../../core/light';
+import * as THREE from 'three';
 import './webglDemo1.less';
 
 class WebglDemo1 extends Component {
@@ -21,7 +22,9 @@ class WebglDemo1 extends Component {
             fov: 75,
             position: {x: -30, y: 40, z: 30}
         });
-
+        this.three.initControls();
+        this.three.initRaycaster();
+        console.log(this.three.initRaycaster)
         this.three.sceneAdd(this.geometry.createAxesHelper(20));
         
         this.three.sceneAdd(this.light.setAmbientLight('0x404040'));
@@ -61,6 +64,19 @@ class WebglDemo1 extends Component {
         this.sceneAnimation();
     }
 
+    getIntersects = (event) => {
+        const {element, scene, camera, raycaster} = this.three;
+        const mouse = new THREE.Vector2();
+        mouse.x = ((event.clientX - element.getBoundingClientRect().left) / element.offsetWidth) * 2 - 1;
+        mouse.y = -((event.clientY - element.getBoundingClientRect().top) / element.offsetHeight) * 2 + 1;
+        
+        raycaster.setFromCamera(mouse, camera);
+        const intersects = raycaster.intersectObjects(scene.children);
+        intersects.forEach(intersect => {
+            intersect.object.material.color.set(0xff0000);
+        })
+    }
+
     sceneAnimation = () => {
         this.cubeAnimation();
         this.sphereAnimation();
@@ -83,7 +99,7 @@ class WebglDemo1 extends Component {
     render() {
         return (
             <div className="webglDemo1">
-                <div id="canvas-frame"></div>
+                <div id="canvas-frame" onMouseMove={this.getIntersects}></div>
             </div>
         );
     }
